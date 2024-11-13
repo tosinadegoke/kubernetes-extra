@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ labels:
+  run: nginx-random-scheduling
+ name: nginx-random-scheduling
+spec:
+ containers:
+ - image: quay.io/gauravkumar9130/nginx
+   name: nginx
+   

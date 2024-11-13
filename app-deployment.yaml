@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rollout-deployment
+  labels:
+    app: prodx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: prodx
+  template:
+    metadata:
+      labels:
+        app: prodx
+    spec:
+      nodeSelector:
+        disktype: ssd
+      containers:
+      - name: prod
+        image: quay.io/gauravkumar9130/production:v1
+        ports:
+        - containerPort: 80
